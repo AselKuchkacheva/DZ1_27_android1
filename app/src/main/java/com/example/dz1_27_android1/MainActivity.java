@@ -7,13 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
-    private EditText et_login;
-    private EditText et_password;
+
+    private EditText etlogin;
+    private EditText etpassword;
     private Button button;
-    private TextView textView;
+    private TextView textView1, textView2, textView3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +24,30 @@ public class MainActivity extends AppCompatActivity {
         init();
     }
 
+
     private void init() {
-        et_login = findViewById(R.id.login);
-        et_password = findViewById(R.id.password);
+        etlogin = findViewById(R.id.login);
+        etpassword = findViewById(R.id.password);
         button = findViewById(R.id.btn_button);
-        textView = findViewById(R.id.txt_message);
+        textView1 = findViewById(R.id.txt_message1);
+        textView2 = findViewById(R.id.txt_message2);
+        textView3 = findViewById(R.id.txt_message3);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (et_login.getText().toString().equals("")){
-                    textView.setText("Вы ввели не правильные данные");
-                }      else {
-                    textView.setText("Успешно!");
+                if (etlogin.getText().toString().isEmpty()) {
+                    textView1.setText("Логин не должен быть пустым!");
+                }
+                else if (etpassword.getText().toString().isEmpty()){
+                    textView2.setText("Заполните пароль!");
+                }
+                else if (etpassword.getText().length()<6){
+                    textView3.setText("Длина пароли должна быть больше 6 символов!");
+                }
+                else {
+                    textView1.setText("Успешно!");
+                    textView2.setText("Успешно!");
+                    textView3.setText("Успешно!");
                 }
             }
         });

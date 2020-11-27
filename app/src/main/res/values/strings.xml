@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DZ1_27_android1</string>
+    <string name="email_error">Логин не должен быть пустым!</string>
 </resources>
